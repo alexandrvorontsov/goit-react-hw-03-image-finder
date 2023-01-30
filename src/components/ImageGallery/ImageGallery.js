@@ -1,16 +1,17 @@
 import PropTypes from 'prop-types';
+import ImageGalleryItem from '../ImageGalleryItem/ImageGalleryItem';
 import styles from './ImageGallery.module.css';
 
 export default function ImageGallery({ data }) {
   return (
     <ul className={styles.ImageGallery}>
-      {data.map(({ id, tags, webformURL, largeImageUrl }) => (
+      {data.map(({ id, tags, webformatURL, largeImageURL }, index) => (
         <ImageGalleryItem
-          key={id}
+          key={index}
           id={id}
           tags={tags}
-          webformURL={webformURL}
-          largeImageUrl={largeImageUrl}
+          webformatUrl={webformatURL}
+          largeImageUrl={largeImageURL || webformatURL}
         />
       ))}
     </ul>

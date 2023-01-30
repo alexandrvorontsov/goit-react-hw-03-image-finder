@@ -13,7 +13,7 @@ export default class ImageGalleryItem extends Component {
   };
 
   render() {
-    const { id, tags, webformatURL, largeImageURL } = this.props;
+    const { id, tags, webformatUrl, largeImageUrl } = this.props;
     const { modalIsOpen } = this.state;
     return (
       <li className={styles.ImageGalleryItem}>
@@ -21,13 +21,13 @@ export default class ImageGalleryItem extends Component {
           className={styles.ImageGalleryItem_image}
           id={id}
           alt={tags}
-          src={webformatURL}
+          src={webformatUrl}
           onClick={this.onModal}
         />
         {modalIsOpen && (
           <Modal
             tags={tags}
-            largeImageURL={largeImageURL}
+            largeImageURL={largeImageUrl}
             handleClose={this.onModal}
           />
         )}
@@ -37,8 +37,8 @@ export default class ImageGalleryItem extends Component {
 }
 
 ImageGalleryItem.propTypes = {
-  webformatURL: PropTypes.string.isRequired,
+  webformatUrl: PropTypes.string.isRequired,
   tags: PropTypes.string.isRequired,
   id: PropTypes.number.isRequired,
-  largeImageURL: PropTypes.string.isRequired,
+  largeImageUrl: PropTypes.string.isRequired,
 };

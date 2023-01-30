@@ -3,7 +3,7 @@ import styles from './Button.module.css';
 
 export default function Button({ onBtnClick }) {
   return (
-    <button className={styles.Button} type="button" onBtnClick={onBtnClick}>
+    <button className={styles.Button} type="button" onClick={onBtnClick}>
       Show more
     </button>
   );

@@ -12,5 +12,5 @@ const searchParams = new URLSearchParams({
 
 export default async function searchImages(searchQuery = '', page = 1) {
   const url = `${BASE_URL}?${searchParams}&q=${searchQuery}&page=${page}`;
-  return await axios.get(url);
+  return await axios.get(url).then(({ data }) => data);
 }

@@ -2,9 +2,13 @@ import PropTypes from 'prop-types';
 import { Component } from 'react';
 import styles from './Searchbar.module.css';
 
+const initState = {
+  searchQuery: '',
+}
+
 class Searchbar extends Component {
   state = {
-    searchQuery: '',
+    ...initState,
   };
 
   handleChange = evt => {
@@ -15,13 +19,14 @@ class Searchbar extends Component {
   handleSubmit = evt => {
     evt.preventDefault();
     const { searchQuery } = this.state;
-    this.props.onSubmit(searchQuery);
+    const { onSubmit } = this.props;
+    onSubmit(searchQuery);
     this.resetForm();
   };
 
   resetForm = () => {
     this.setState({
-      searchQuery: '',
+      ...initState,
     });
   };
 
