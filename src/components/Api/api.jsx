@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { toast } from 'react-toastify';
 
 const BASE_URL = 'https://pixabay.com/api/';
 
@@ -11,5 +12,8 @@ const searchParams = new URLSearchParams({
 
 export default async function searchImages(searchQuery = '', page = 1) {
   const url = `${BASE_URL}?${searchParams}&q=${searchQuery}&page=${page}`;
-  return await axios.get(url).then(({ data }) => data);
+  return await axios
+    .get(url)
+    .then(({ data }) => data)
+    .catch(error => toast(error.massage));
 }
