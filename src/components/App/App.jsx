@@ -1,4 +1,6 @@
 import { Component } from 'react';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import Button from '../Button/Button';
 import ImageGallery from '../ImageGallery/ImageGallery';
 import Loader from '../Loader/Loader';
@@ -76,6 +78,7 @@ export class App extends Component {
         {images.length > 0 && !isLoading && (
           <Button onBtnClick={this.onBtnClick} />
         )}
+        <ToastContainer autoClose={3000} />
       </>
     );
   }
