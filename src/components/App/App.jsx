@@ -21,9 +21,7 @@ export class App extends Component {
     ...initState,
   };
 
-  componentDidMount() {
-    this.getImages();
-  }
+  componentDidMount() {}
 
   componentDidUpdate(prevProps, prevState) {
     const { searchQuery, page } = this.state;
@@ -69,13 +67,13 @@ export class App extends Component {
   };
 
   render() {
-    const { images, isLoading } = this.state;
+    const { images, isLoading, totalHits } = this.state;
     return (
       <>
         <Searchbar onSubmit={this.handleSubmit} />
         {images?.length > 0 && <ImageGallery data={images} />}
         {isLoading && <Loader />}
-        {images.length > 0 && !isLoading && (
+        {images.length < totalHits && !isLoading && (
           <Button onBtnClick={this.onBtnClick} />
         )}
         <ToastContainer autoClose={3000} />
